@@ -46,13 +46,16 @@
             <label class="form-label">Department</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-building"></i></span>
-                <select name="department_id" class="form-select @error('department_id') is-invalid @enderror" required>
-                    <option value="">Select department</option>
+                <select name="department_id" class="form-select @error('department_id') is-invalid @enderror" required @if($departments->isEmpty()) disabled @endif>
+                    <option value="">{{ $departments->isEmpty() ? 'No departments available' : 'Select department' }}</option>
                     @foreach($departments as $department)
                         <option value="{{ $department->id }}" {{ old('department_id') == $department->id ? 'selected' : '' }}>{{ $department->name }}</option>
                     @endforeach
                 </select>
             </div>
+            @if($departments->isEmpty())
+                <div class="text-warning mt-1" style="font-size:12px">No departments have been added yet. Please ask the administrator to create departments first.</div>
+            @endif
             @error('department_id')
                 <div class="text-danger mt-1" style="font-size:12px">{{ $message }}</div>
             @enderror
