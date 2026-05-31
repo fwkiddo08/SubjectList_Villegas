@@ -197,7 +197,6 @@ function previewAvatar(input) {
             if (placeholder) placeholder.classList.add('d-none');
         };
         reader.readAsDataURL(input.files[0]);
-        // Auto-submit
         document.getElementById('avatarForm').submit();
     }
 }
