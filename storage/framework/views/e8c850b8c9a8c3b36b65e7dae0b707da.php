@@ -101,7 +101,7 @@
                         <div class="d-flex gap-1">
                             <button class="btn btn-icon btn-outline-primary btn-sm"
                                 title="Edit"
-                                onclick="openEdit(<?php echo e($dept->id); ?>, <?php echo json_encode($dept, 15, 512) ?>)">
+                                onclick='openEdit(<?php echo e($dept->id); ?>, <?php echo json_encode($dept, 15, 512) ?>)'>
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <form id="del-dept-<?php echo e($dept->id); ?>"

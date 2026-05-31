@@ -150,7 +150,7 @@
                             @if(auth()->user()->isAdmin())
                                 <button class="btn btn-icon btn-outline-primary btn-sm"
                                     title="Edit"
-                                    onclick="openEdit({{ $subject->id }}, @json($subject))">
+                                    onclick='openEdit({{ $subject->id }}, @json($subject))'>
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 <form id="del-{{ $subject->id }}"

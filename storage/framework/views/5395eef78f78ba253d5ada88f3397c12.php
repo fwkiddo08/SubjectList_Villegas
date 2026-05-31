@@ -80,13 +80,16 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" required>
-                    <option value="">Select department</option>
+unset($__errorArgs, $__bag); ?>" required <?php if($departments->isEmpty()): ?> disabled <?php endif; ?>>
+                    <option value=""><?php echo e($departments->isEmpty() ? 'No departments available' : 'Select department'); ?></option>
                     <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($department->id); ?>" <?php echo e(old('department_id') == $department->id ? 'selected' : ''); ?>><?php echo e($department->name); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
+            <?php if($departments->isEmpty()): ?>
+                <div class="text-warning mt-1" style="font-size:12px">No departments have been added yet. Please ask the administrator to create departments first.</div>
+            <?php endif; ?>
             <?php $__errorArgs = ['department_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

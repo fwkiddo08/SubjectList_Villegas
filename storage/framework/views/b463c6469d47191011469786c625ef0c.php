@@ -154,7 +154,7 @@
                             <?php if(auth()->user()->isAdmin()): ?>
                                 <button class="btn btn-icon btn-outline-primary btn-sm"
                                     title="Edit"
-                                    onclick="openEdit(<?php echo e($subject->id); ?>, <?php echo json_encode($subject, 15, 512) ?>)">
+                                    onclick='openEdit(<?php echo e($subject->id); ?>, <?php echo json_encode($subject, 15, 512) ?>)'>
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 <form id="del-<?php echo e($subject->id); ?>"

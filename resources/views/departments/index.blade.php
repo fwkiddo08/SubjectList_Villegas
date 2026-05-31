@@ -99,7 +99,7 @@
                         <div class="d-flex gap-1">
                             <button class="btn btn-icon btn-outline-primary btn-sm"
                                 title="Edit"
-                                onclick="openEdit({{ $dept->id }}, @json($dept))">
+                                onclick='openEdit({{ $dept->id }}, @json($dept))'>
                                 <i class="bi bi-pencil"></i>
                             </button>
                             <form id="del-dept-{{ $dept->id }}"
